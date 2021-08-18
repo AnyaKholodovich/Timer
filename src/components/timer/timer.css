@@ -18,3 +18,11 @@ font-size: 16px;
 h1{
     color:black;
 }
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+

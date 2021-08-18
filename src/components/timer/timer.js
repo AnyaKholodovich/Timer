@@ -5,6 +5,7 @@ function Timer(){
 
         const [time, setTime] = useState(0);
         const [start, setStart] = useState(false);
+        const [disable, setDisable] = useState(false);
 
         useEffect(() => {
             let interval = null;
@@ -18,6 +19,7 @@ function Timer(){
             return () => clearInterval(interval)
         }, [start])
 
+
         return (
             <div className = "timer">
                 <h1>Timer</h1>
@@ -28,9 +30,9 @@ function Timer(){
                 </h1>
                 
                 <div>
-                    <button onClick = {() => setStart(true)} className = 'button'>Start</button>
-                    <button onClick = {() => setStart(false)} className = 'button'>Pause</button>
-                    <button onClick = {() => {setTime(0); setStart(false);}} className = 'button'>Reset</button>
+                    <button onClick = {() => {setStart(true); setDisable(true);}} className = 'button'>Start</button>
+                    <button onClick = {() => {setStart(false); setDisable(false);} }className = 'button'>Pause</button>
+                    <button className = 'button' disabled={disable} onClick = {() => {setTime(0); setStart(false);}}>Reset</button>
                 </div>
             </div>
         );
